@@ -804,7 +804,7 @@ a.btnNormal:active,input.btnNormal:active{background-color:#f9f9f9; background-i
 .main_function.qywx_function{margin-top: 0;margin-bottom: 0;}
 .main_function.qywx_function a{margin-top: 0;}
 
-.m_title{font-size:12px;font-weight:lighter;color:#707070;text-indent:10px;line-height:26px;}
+.m_title{font-size:12px;font-weight:lighter;color:#707070;text-indent:10px;line-height:26px;margin-top: 80px}
 .nvip_function{/*border:1px solid #ececec\9;*height:90px;+width:584px;*//*background:#f9fafa;remove by molicechen*/overflow:hidden;zoom:1;margin:0 0 15px 0;border-radius:3px;box-shadow:1px 1px 3px #c8c8c8;}
 .nvip_function li{width:25%;float:left;}
 .nvip_function .lastItem {_margin-left:-3px;_border-left:1px solid #e0dfdf;}

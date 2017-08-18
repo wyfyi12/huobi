@@ -25,6 +25,7 @@ public class MailStatus {
 		log.setInfo(logrs.toString());
 		log.setTime(DoDate.getnowdatetime("s"));
 		log.setType("MailStatus");
+		log.setDomain(domain);
 		mailexport.insertlog(log);
 	}
 }

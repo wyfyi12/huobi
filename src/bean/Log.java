@@ -4,6 +4,8 @@ public class Log {
 	private String type;
 	private String info;
 	private String time;
+	private String domain;
+	
 	public String getType() {
 		return type;
 	}
@@ -21,6 +23,12 @@ public class Log {
 	}
 	public void setTime(String time) {
 		this.time = time;
+	}
+	public String getDomain() {
+		return domain;
+	}
+	public void setDomain(String domain) {
+		this.domain = domain;
 	}
 	
 }

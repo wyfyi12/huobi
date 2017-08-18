@@ -7,82 +7,79 @@
 <link href="css/mail.css" rel="stylesheet">
 </head>
 <body>
+<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/mail.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	window.onload = function(){
+		$.ajax({
+            type: "POST",
+            url: "/HuoBiLog/indexajax",
+            data: {userid:getQueryString("userid")},
+            dataType: "json",
+            success: function(data){
+            	for(var o in data){  
+                    addLi("navBar",decodeURI(data[o].li));
+                  } 
+            	document.getElementById('hello').innerHTML = "欢迎您，"+getQueryString("userid");
+            	
+                     }
+        });
+		};
+</script>
 	<nav class="nav">
 		<ul class="wd" id="navBar">
-			<li><a href="#" un="today" class="on">首页</a></li>
-			<li><a href="#mbr/list" class="">邮件概况</a></li>
-			<li><a href="#setting/ownerInfo" class="">邮件搜索</a></li>
-			<li><a href="#syslog/date" class="">登录记录</a></li>
-			<li><a href="#toolbox" class="">操作记录</a></li>
-			<li><a href="#viptool" class="">批量任务</a></li>
 		</ul>
 	</nav>
 	<div id="main" class="mainPanel wd txt_left">
-		<div class="content homepage" style="width: 960px;">
+		<div class="content homepage" style="width: 960px;" id="maintxt">
 			<div class="leftColumn left">
 				<div class="dashboardGrid">
-					<h1 id="divCorpInfo" class="welcome">欢迎您，njarti</h1>
+					<h1 id="hello" class="welcome"></h1>
 					<div class="msgPannel">
 						<p class="msg_info">
 							企业邮箱昨日完成 <span id="todo_count">5</span> 项日志备份：
 						</p>
-						<ul class="msgBox">
+						<ul class="msgBox" id="savelog">
 							<li class="b_size" un="admin_notify"><div class="link">
 									<div class="link_content" data-type="16">
-										<b>•</b>&nbsp;未备案域名无法用mail.域名访问企业邮箱
+										<b>•</b>&nbsp;邮件概况已备份。
 									</div>
-									<a href="javascript:;" class="title_url"
-										ck="checkAdminnotifyDetail"
-										data-id="ZC0207-MiKOTGsxLi6mDg5XamkeH7k" data-read="0">查看详情</a><a
-										class="del_msg" ck="delAdminNotify"
-										data-id="ZC0207-MiKOTGsxLi6mDg5XamkeH7k">X</a>
 								</div></li>
-							<li class="b_size delabled" un="info" infoid="0" infotype="11"
-								taskid="" infocontent="我们的产品好用吗？诚邀您参与问卷调查。"><div
-									class="link">
-									<div class="link_content">
-										<b>•</b> 我们的产品好用吗？诚邀您参与问卷调查。
+							<li class="b_size" un="admin_notify"><div class="link">
+									<div class="link_content" data-type="16">
+										<b>•</b>&nbsp;成员邮件已备份。
 									</div>
-									<a
-										href="http://exmail.qq.com/cgi-bin/readtemplate?check=false&amp;t=biz_rf_portal&amp;alias=njarti#survey/survey,biz_rf_search_201202.html,njarti"
-										target="_blank" class="title_url">填写问卷</a><a class="del_msg"
-										ck="delInfo">X</a>
 								</div></li>
-							<li class="b_size " un="info" infoid="0" infotype="2" taskid=""
-								infocontent="域名 txmail.xyz MX记录未生效"><div class="link">
-									<div class="link_content">
-										<b>•</b> 域名 txmail.xyz MX记录未生效
+							<li class="b_size" un="admin_notify"><div class="link">
+									<div class="link_content" data-type="16">
+										<b>•</b>&nbsp;登陆记录已备份。
 									</div>
-									<a href="#domain/manage" class="title_url">进入域名管理</a>
+								</div></li>
+								<li class="b_size" un="admin_notify"><div class="link">
+									<div class="link_content" data-type="16">
+										<b>•</b>&nbsp;操作记录已备份。
+									</div>
+								</div></li>
+								<li class="b_size" un="admin_notify"><div class="link">
+									<div class="link_content" data-type="16">
+										<b>•</b>&nbsp;批量任务已备份。
+									</div>
 								</div></li>
 						</ul>
 					</div>
 					<h3 class="m_title">常用入口</h3>
 					<ul class="nvip_function">
-						<li><a href="#mbr/account/add/1090017090"
-							class="btn_addmember"><span class="ico_obj ico_addMember"></span>添加成员</a></li>
+						<li><a href="https://exmail.qq.com/cgi-bin/loginpage"
+							class="btn_addmember"><span ></span>邮箱登录</a></li>
+							<li><a href="https://exmail.qq.com/cgi-bin/loginpage"
+							class="btn_addmember"><span ></span>成员管理</a></li>
+							<li><a href="https://exmail.qq.com/cgi-bin/loginpage"
+							class="btn_addmember"><span ></span>密码修改</a></li>
 					</ul>
 				</div>
 			</div>
 			<aside class="rightColumn left" style="width: 260px;">
-				<div class="sidebar">
-					<a href="#setting/ownerInfo" class="version_info">当前版本：收费版<br>到期时间：2021年12月6日
-					</a><input type="hidden" name="vipEndTimeData" value="1638794571">
-					<section class="inforbar">
-						<h4>域名</h4>
-						<div class="info_con">
-							<p class="d_list">
-								<a href="#domain/manage" class="graytext">txmail.xyz <span
-									title="验证中" class="co_domain icon_wait_m"></span></a>
-							</p>
-							<p class="d_list">
-								<a href="#domain/manage" class="graytext">yzsmarts.xyz <span
-									title="已验证" class="co_domain icon_finish_m"></span></a>
-							</p>
-						</div>
-					</section>
-				</div>
 			</aside>
 			<div class="clr"></div>
 		</div>
