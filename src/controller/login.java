@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,9 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import bean.Login;
+import bean.LoginMap;
 import bean.User;
 import dao.mailexport;
 import net.sf.json.JSONObject;
+import uitl.GetIp;
 
 /**
  * Servlet implementation class login
@@ -51,6 +55,17 @@ public class login extends HttpServlet {
 			if(u==null){
 				rsjob.element("rs", "unregistered");
 			} else if(u.getPassword().equals(password)){
+				String ip=GetIp.getIpAddress(request);
+				Long time=System.currentTimeMillis();
+				System.out.println(ip+time);
+				Login log=new Login();
+				log.setIp(ip);
+				log.setTime(time);
+				log.setUserid(userid);
+				HashMap<String, Login> lgmap=new HashMap<>();
+				lgmap.put(userid, log);
+				LoginMap.setLgmap(lgmap);
+				System.out.println("缓存完成");
 				rsjob.element("rs", "success");
 				rsjob.element("userid", userid);
 			}else{

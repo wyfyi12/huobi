@@ -5,6 +5,7 @@ public class Log {
 	private String info;
 	private String time;
 	private String domain;
+	private String userid;
 	
 	public String getType() {
 		return type;
@@ -29,6 +30,12 @@ public class Log {
 	}
 	public void setDomain(String domain) {
 		this.domain = domain;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 	
 }

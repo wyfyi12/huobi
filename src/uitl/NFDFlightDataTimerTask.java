@@ -19,7 +19,7 @@ public class NFDFlightDataTimerTask extends TimerTask {
     		Operation.gettodayoperation(logtoken);
     		MailStatus.gettodaymailstatus(logtoken, "yzsmarts.xyz");
     		MailStatus.gettodaymailstatus(logtoken, "txmail.xyz");
-    		Mail.gettodaymail(logtoken);
+    		Mail.gettodaymail(logtoken,txltoken);
     		logger.info(DoDate.getnowdatetime("d")+"备份完成");
         } catch (Exception e) {
         	StringBuffer stringBuffer = new StringBuffer(e.toString() + "\n");  

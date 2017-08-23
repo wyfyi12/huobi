@@ -4,33 +4,52 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 <link href="css/mail.css" rel="stylesheet">
 </head>
 <body>
-<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.js"></script>
 	<script src="js/mail.js"></script>
 	<script type="text/javascript" charset="utf-8">
-	window.onload = function(){
-		$.ajax({
-            type: "POST",
-            url: "/HuoBiLog/indexajax",
-            data: {userid:getQueryString("userid")},
-            dataType: "json",
-            success: function(data){
-            	for(var o in data){  
-                    addLi("navBar",decodeURI(data[o].li));
-                  } 
-            	document.getElementById('hello').innerHTML = "欢迎您，"+getQueryString("userid");
-            	
-                     }
-        });
+		window.onload = function() {
+			$
+					.ajax({
+						type : "POST",
+						url : "/HuoBiLog/indexajax",
+						data : {
+							userid : getQueryString("userid")
+						},
+						dataType : "json",
+						success : function(data) {
+							if (data.rs == "timeerr") {
+								alert("请求超时！");
+								window.location.href = 'http://119.29.56.97:8080/HuoBiLog/login.html';
+							} else {
+								for ( var o in data) {
+									addLi("navBar", decodeURI(data[o].li));
+								}
+								document.getElementById('hello').innerHTML = "欢迎您，"
+										+ getQueryString("userid");
+							}
+						}
+					});
 		};
-</script>
+		
+	</script>
+	<header class="header">
+		<div class="wd txt_left">
+			<div class="logo left">
+				<a href="#"><img
+					src=""></a>
+			</div>
+	</header>
 	<nav class="nav">
 		<ul class="wd" id="navBar">
 		</ul>
 	</nav>
+	
 	<div id="main" class="mainPanel wd txt_left">
 		<div class="content homepage" style="width: 960px;" id="maintxt">
 			<div class="leftColumn left">
@@ -56,12 +75,12 @@
 										<b>•</b>&nbsp;登陆记录已备份。
 									</div>
 								</div></li>
-								<li class="b_size" un="admin_notify"><div class="link">
+							<li class="b_size" un="admin_notify"><div class="link">
 									<div class="link_content" data-type="16">
 										<b>•</b>&nbsp;操作记录已备份。
 									</div>
 								</div></li>
-								<li class="b_size" un="admin_notify"><div class="link">
+							<li class="b_size" un="admin_notify"><div class="link">
 									<div class="link_content" data-type="16">
 										<b>•</b>&nbsp;批量任务已备份。
 									</div>
@@ -71,16 +90,15 @@
 					<h3 class="m_title">常用入口</h3>
 					<ul class="nvip_function">
 						<li><a href="https://exmail.qq.com/cgi-bin/loginpage"
-							class="btn_addmember"><span ></span>邮箱登录</a></li>
-							<li><a href="https://exmail.qq.com/cgi-bin/loginpage"
-							class="btn_addmember"><span ></span>成员管理</a></li>
-							<li><a href="https://exmail.qq.com/cgi-bin/loginpage"
-							class="btn_addmember"><span ></span>密码修改</a></li>
+							class="btn_addmember"><span></span>邮箱登录</a></li>
+						<li><a href="https://exmail.qq.com/cgi-bin/loginpage"
+							class="btn_addmember"><span></span>成员管理</a></li>
+						<li><a href="https://exmail.qq.com/cgi-bin/loginpage"
+							class="btn_addmember"><span></span>密码修改</a></li>
 					</ul>
 				</div>
 			</div>
-			<aside class="rightColumn left" style="width: 260px;">
-			</aside>
+			<aside class="rightColumn left" style="width: 260px;"></aside>
 			<div class="clr"></div>
 		</div>
 	</div>

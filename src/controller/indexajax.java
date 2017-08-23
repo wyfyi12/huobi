@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import bean.LoginMap;
 import bean.User;
 import dao.mailexport;
+import net.sf.json.JSONObject;
+import uitl.GetIp;
 import uitl.UserAuth;
 
 /**
@@ -45,11 +48,17 @@ public class indexajax extends HttpServlet {
 		// TODO Auto-generated method stub
 		String userid=request.getParameter("userid");
 		String ulja="";
+		String ip=GetIp.getIpAddress(request);
+		System.out.println(LoginMap.getLgmap().get(userid).getIp());
 		try {
+			if(LoginMap.getLgmap()!=null&&ip.equals(LoginMap.getLgmap().get(userid).getIp())&&(System.currentTimeMillis() - LoginMap.getLgmap().get(userid).getTime()) / (1000 * 60)<30){
 			User u=mailexport.queryuser(userid);
-			System.out.println(u.getAuth());
 			ulja=UserAuth.getindexauth(u.getAuth());
-			System.out.println(ulja);
+			}else{
+				JSONObject rs=new JSONObject();
+				rs.element("rs", "timeerr");
+				ulja=rs.toString();
+			}
 		} catch (Exception e) {
 			StringBuffer stringBuffer = new StringBuffer(e.toString() + "\n");  
 	        StackTraceElement[] messages = e.getStackTrace();  

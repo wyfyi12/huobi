@@ -14,8 +14,8 @@ public class TimerManager {
      private static final long PERIOD_DAY = 24 * 60 * 60 * 1000;
      public TimerManager() {
           Calendar calendar = Calendar.getInstance(); 
-          calendar.set(Calendar.HOUR_OF_DAY, 15);
-          calendar.set(Calendar.MINUTE, 50);
+          calendar.set(Calendar.HOUR_OF_DAY, 14);
+          calendar.set(Calendar.MINUTE, 46);
           calendar.set(Calendar.SECOND, 0);
            
           Date date=calendar.getTime(); //第一次执行定时任务的时间

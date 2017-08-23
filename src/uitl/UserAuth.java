@@ -10,7 +10,7 @@ public class UserAuth {
 		JSONArray authja=new JSONArray();
 		if(auth.contains("1")){
 			JSONObject indexul=new JSONObject();
-			indexul.element("li", "<li><a href='#' onclick='shouye()'  >"+URLEncoder.encode("首页", "utf-8")+"</a></li>");
+			indexul.element("li", "<li><a href='#'  onclick='history.go(0)' >"+URLEncoder.encode("首页", "utf-8")+"</a></li>");
 			authja.add(indexul);
 		}
 		if(auth.contains("2")){

@@ -31,6 +31,7 @@ public class Login {
 			Log log=new Log();
 			log.setInfo(logrs.toString());
 			log.setTime(DoDate.getnowdatetime("s"));
+			log.setUserid(userid);
 			log.setType("Login");
 			mailexport.insertlog(log);
 		}
