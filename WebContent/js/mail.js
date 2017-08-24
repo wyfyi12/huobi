@@ -56,10 +56,10 @@ function msajax() {
 							+ '<th style="width: 14%;">详情</th>' + '</tr>';
 					for ( var o in msg) {
 						table_ms = table_ms + '<tr><td></td><td>' + o
-								+ ' </td><td>' + msg[o].time
+								+ ' </td><td >' + msg[o].time
 								+ '</td><td></td><td>' + msg[o].info.sendsum
 								+ '</td><td>' + msg[o].info.recvsum
-								+ '</td><td><a class="btn btnNormal" onclick="msi("'+msg[o].time+'")" >详情</a></td></tr>';
+								+ '</td><td><a class="btn btnNormal" onclick="msi(\''+msg[o].time+'\')" >详情</a></td></tr>';
 					}
 					table_ms = table_ms
 							+ '</tbody></table>'
@@ -131,7 +131,7 @@ function miajax() {
 
 function msi(time) {
 	var strs= new Array(); 
-	strs=time.split(" "); 
+	strs=time.split(" ");
 	var begintime = strs[0];
 	var endtime = begintime;
 	$.ajax({
@@ -146,22 +146,20 @@ function msi(time) {
 					var table_ms =  '<div style="width: 100%;"><div class="caption" style="text-align: right"></div>'
 							+ '<table cellspacing="0" align="center" class="infoTable domainInfo listTable" style="width: 100%; table-layout: fixed;" id="mstable">'
 							+ '<tbody>' + '<tr><th style="width: 5%">序号</th>'
-							+ '<th style="width: 15%;cursor=default;">时间</th>'
-							+ '<th style="width: 18%;">邮箱账号</th>'
-							+ '<th style="width: 18%;">发件量</th>'
-							+ '<th style="width: 16%;">收件量</th>'
-							+ '<th style="width: 14%;"></th>'
-							+ '<th style="width: 14%;"></th>' + '</tr>';
+							+ '<th style="width: 18%;cursor=default;">时间</th>'
+							+ '<th style="width: 15%;"></th>'
+							+ '<th style="width: 22%;">邮箱账号</th>'
+							+ '<th style="width: 12%;"></th>'
+							+ '<th style="width: 14%;">发件量</th>'
+							+ '<th style="width: 14%;">收件量</th>' + '</tr>';
 					for ( var o in msg) {
-						for(var i in msg[o].info.list){
 						table_ms = table_ms + '<tr><td>'+o+'</td><td>' + msg[o].time
-								+ ' </td><td>' + msg[o].userid
-								+ '</td><td>'+msg[o].send
-								+'</td><td>' + msg[o].get
-								+ '</td><td>' 
-								+ '</td><td>'
+								+ ' </td><td>' 
+								+ '</td><td>'+ msg[o].userid
+								+'</td><td>' 
+								+ '</td><td>' +msg[o].send
+								+ '</td><td>'+ msg[o].get
 								+'</td></tr>';
-						}
 					}
 					table_ms = table_ms
 							+ '</tbody></table>'

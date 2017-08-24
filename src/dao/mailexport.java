@@ -174,7 +174,7 @@ public class mailexport {
 		getConnection();
 		JSONArray umap=new JSONArray();
 		try {
-			String sql = "select * from	Mail time between '"+btime+"' and '"+etime+"'";
+			String sql = "select * from	Mail where time between '"+btime+"' and '"+etime+"'";
 			System.out.println(sql);
 			st = (Statement) conn.createStatement();
 			ResultSet rs = st.executeQuery(sql);
