@@ -3,6 +3,8 @@ package uitl;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
+
+import bean.Prop;
  
 /**
  * java定时任务，每天定时执行任务
@@ -14,10 +16,9 @@ public class TimerManager {
      private static final long PERIOD_DAY = 24 * 60 * 60 * 1000;
      public TimerManager() {
           Calendar calendar = Calendar.getInstance(); 
-          calendar.set(Calendar.HOUR_OF_DAY, 14);
-          calendar.set(Calendar.MINUTE, 46);
+          calendar.set(Calendar.HOUR_OF_DAY, Prop.getHour());
+          calendar.set(Calendar.MINUTE, Prop.getMin());
           calendar.set(Calendar.SECOND, 0);
-           
           Date date=calendar.getTime(); //第一次执行定时任务的时间
           System.out.println("before 方法比较："+date.before(new Date()));
           //如果第一次执行定时任务的时间 小于 当前的时间

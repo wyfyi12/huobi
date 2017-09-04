@@ -4,6 +4,7 @@ package uitl;
 import org.apache.log4j.Logger;
 
 import bean.Log;
+import bean.SaveLog;
 import common.datetime.DoDate;
 import dao.mailexport;
 import net.sf.json.JSONObject;
@@ -24,5 +25,7 @@ public class BatchJob {
 		log.setTime(DoDate.getnowdatetime("s"));
 		log.setType("BatchJob");
 		mailexport.insertlog(log);
+		SaveLog.setBllog("success,"+DoDate.getnowdatetime("s"));
 	}
+	
 }

@@ -4,6 +4,8 @@ import java.util.TimerTask;
 
 import org.apache.log4j.Logger;
 
+import bean.Prop;
+import bean.SaveLog;
 import common.datetime.DoDate;
 import newmail.DoToken;
 
@@ -12,13 +14,15 @@ public class NFDFlightDataTimerTask extends TimerTask {
     @Override
     public void run() {
         try {
-        	String logtoken=DoToken.gettoken("wm714ea8cd6bcdb5b1", "hAfGD7Ye2O2lEBd_YGJUXjzg4BSGm2f-cyCh-0EUPaI");
-    		String txltoken=DoToken.gettoken("wm714ea8cd6bcdb5b1", "xwSMBSC5kVUzQFzs3CP5OO-kXvvRF-uByr4uhSw6v2s");
+        	String logtoken=DoToken.gettoken(Prop.getCorpid(), Prop.getLogkey());
+    		String txltoken=DoToken.gettoken(Prop.getCorpid(), Prop.getTxlkey());
     		Login.gettodaylogin(logtoken, txltoken);
     		BatchJob.gettodaybatchjob(logtoken);
     		Operation.gettodayoperation(logtoken);
-    		MailStatus.gettodaymailstatus(logtoken, "yzsmarts.xyz");
-    		MailStatus.gettodaymailstatus(logtoken, "txmail.xyz");
+    		for(int i=0;i<Prop.getDomains().size();i++){
+    			MailStatus.gettodaymailstatus(logtoken, Prop.getDomains().get(i));
+    		}
+    		SaveLog.setMslog("success,"+DoDate.getnowdatetime("s"));
     		Mail.gettodaymail(logtoken,txltoken);
     		logger.info(DoDate.getnowdatetime("d")+"备份完成");
         } catch (Exception e) {

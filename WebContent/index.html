@@ -14,8 +14,11 @@
 	<script src="js/mail.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		window.onload = function() {
-			$
-					.ajax({
+			if(getQueryString("userid")==null){
+				alert("请求超时！");
+				window.location.href = 'http://119.29.56.97:8080/HuoBiLog/login.html';
+			}else{
+			$.ajax({
 						type : "POST",
 						url : "/HuoBiLog/indexajax",
 						data : {
@@ -34,9 +37,8 @@
 										+ getQueryString("userid");
 							}
 						}
-					});
+					});}
 		};
-		
 	</script>
 	<header class="header">
 		<div class="wd txt_left">
@@ -91,10 +93,10 @@
 					<ul class="nvip_function">
 						<li><a href="https://exmail.qq.com/cgi-bin/loginpage"
 							class="btn_addmember"><span></span>邮箱登录</a></li>
-						<li><a href="https://exmail.qq.com/cgi-bin/loginpage"
+						<!-- <li><a href="https://exmail.qq.com/cgi-bin/loginpage"
 							class="btn_addmember"><span></span>成员管理</a></li>
 						<li><a href="https://exmail.qq.com/cgi-bin/loginpage"
-							class="btn_addmember"><span></span>密码修改</a></li>
+							class="btn_addmember"><span></span>密码修改</a></li> -->
 					</ul>
 				</div>
 			</div>

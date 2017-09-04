@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import org.apache.log4j.Logger;
 
 import bean.Log;
+import bean.SaveLog;
 import common.datetime.DoDate;
 import common.json.DoJson;
 import dao.mailexport;
@@ -36,5 +37,6 @@ public class Mail {
 		log.setUserid(userid);
 		mailexport.insertlog(log);
 		}
+		SaveLog.setMilog("success,"+DoDate.getnowdatetime("s"));
 	}
 }

@@ -23,7 +23,7 @@ function mailstatus() {
 			+ "<span class='arrow' ></span></span></span></span><div class='tool_li'>"
 			+ "<span class='addrtitle f_size'>域名：</span>"
 			+ "<span class='addrinput' style='position:relative;'>"
-			+ "<select  class='txt' name='opersect' style='position: absolute; top: 0px; top: 2px\9; height: 26px; line-height: 26px;' id='domain'>"
+			+ "<select  class='txt' name='opersect' style='position: absolute; top: 0px; top: 2px; height: 26px; line-height: 26px;' id='domain'>"
 			+"<option value='yzsmarts.xyz'>yzsmarts.xyz</option>"
 			+"<option value='txmail.xyz'>txmail.xyz</option>"
 			+ "</select></span></div>"
@@ -243,7 +243,7 @@ function oprlog() {
 			+ "<span class='arrow' ></span></span></span></span><div class='tool_li'>"
 			+ "<span class='addrtitle f_size'>操作类型：</span>"
 			+ "<span class='addrinput' style='position:relative;'>"
-			+ "<select  class='txt' name='opersect' style='position: absolute; top: 0px; top: 2px\9; height: 26px; line-height: 26px;' id='type'>"
+			+ "<select  class='txt' name='opersect' style='position: absolute; top: 0px; top: 2px; height: 26px; line-height: 26px;' id='type'>"
 			+"<option value='all'>全部</option>"
 			+"<option value='1'>登录</option>"
 			+"<option value='2'>修改密码</option>"
@@ -336,7 +336,7 @@ function olajax() {
 					table_ms = table_ms
 							+ '</tbody></table>'
 							+ '<div class="caption" style="text-align: right"></div></div>';
-					document.getElementById('maintxt').innerHTML = table_ms;
+					document.getElementById('table').innerHTML = table_ms;
 				}
 			});
 }
@@ -354,7 +354,7 @@ function batchlog() {
 			+ "<span class='arrow' ></span></span></span></span><div class='tool_li'>"
 			+ "<span class='addrtitle f_size'>操作类型：</span>"
 			+ "<span class='addrinput' style='position:relative;'>"
-			+ "<select  class='txt' name='opersect' style='position: absolute; top: 0px; top: 2px\9; height: 26px; line-height: 26px;' id='type'>"
+			+ "<select  class='txt' name='opersect' style='position: absolute; top: 0px; top: 2px; height: 26px; line-height: 26px;' id='type'>"
 			+"<option value='all'>全部</option>"
 			+"<option value='1'>群发邮件</option>"
 			+"<option value='2'>批量导入成员</option>"
